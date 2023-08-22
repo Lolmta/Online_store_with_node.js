@@ -4,12 +4,11 @@ import { Routes, Route } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes";
 
 const AppRouter = () => {
-  const isAuth = false;
-  const routes = isAuth ? authRoutes : publicRoutes;
+  const isAuth = true;
 
   return (
     <Routes>
-      {routes.map((route) => (
+      {publicRoutes.map((route) => (
         <Route
           exact
           path={route.path}
@@ -17,6 +16,15 @@ const AppRouter = () => {
           key={route.path}
         />
       ))}
+      {isAuth &&
+        authRoutes.map((route) => (
+          <Route
+            exact
+            path={route.path}
+            element={<route.Component />}
+            key={route.path}
+          />
+        ))}
     </Routes>
   );
 };

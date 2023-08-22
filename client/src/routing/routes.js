@@ -34,7 +34,7 @@ export const publicRoutes = [
     Component: AuthPage,
   },
   {
-    path: DEVICE_ROUTE + ":/id",
+    path: DEVICE_ROUTE + "/:id",
     Component: DevicePage,
   },
   {
